@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #fffaf6;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(231, 76, 60, 0.08), transparent 28%),
+    linear-gradient(180deg, #fffdf8 0%, #fff7f3 45%, #fffdfb 100%);
+  color: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  display: block;
+}
+
+.scan-frame {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 0 0 999px rgba(0, 0, 0, 0.08);
+  animation: framePulse 2.2s ease-in-out infinite;
+}
+
+.scan-frame::before,
+.scan-frame::after {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 24px;
+  border-top: 4px solid rgba(255, 255, 255, 0.85);
+  border-left: 4px solid rgba(255, 255, 255, 0.85);
+  top: 12px;
+  left: 12px;
+}
+
+.scan-frame::after {
+  top: auto;
+  left: auto;
+  right: 12px;
+  bottom: 12px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 4px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.85);
+}
+
+.scan-line {
+  animation: scanSweep 1.5s linear infinite;
+  box-shadow: 0 0 28px rgba(39, 174, 96, 0.9);
+}
+
+.ingredient-chip {
+  animation: chipPop 0.25s ease-out;
+}
+
+@keyframes scanSweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(17rem);
+    opacity: 0.25;
+  }
+}
+
+@keyframes framePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.012);
+  }
+}
+
+@keyframes chipPop {
+  0% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
