@@ -16,7 +16,7 @@ import {
   type FoodEntry,
   type Recipe,
   type Tier,
-} from "./data/cooksnapData";
+} from "./cooksnapData";
 
 type AppTab = "home" | "recipes" | "planner" | "grocery" | "saved" | "profile";
 type ScanMode = "visual" | "barcode";
